@@ -1,4 +1,4 @@
-const EventCard = ({ event, deleteEvent }) => {
+const EventCard = ({ event, deleteEvent,editEvent }) => {
   return (
     <div className="bg-white shadow-md p-6 rounded-lg hover:shadow-xl transition">
 
@@ -13,6 +13,19 @@ const EventCard = ({ event, deleteEvent }) => {
       <p className="text-gray-600">
         Budget: ₹{event.budget}
       </p>
+    
+        <p className="mt-2">
+  Status:
+  <span
+    className={`ml-2 px-3 py-1 text-sm rounded 
+      ${event.status === "Upcoming" ? "bg-blue-100 text-blue-700" : ""}
+      ${event.status === "Completed" ? "bg-green-100 text-green-700" : ""}
+      ${event.status === "Cancelled" ? "bg-red-100 text-red-700" : ""}
+    `}
+  >
+    {event.status}
+  </span>
+</p>
 
         <button
         onClick={() => editEvent(event)}
