@@ -6,14 +6,24 @@ const Sidebar = () => {
 
       <h2 className="text-xl font-bold mb-6">Menu</h2>
 
-      <ul className="space-y-4">
+      <ul className="space-y-3">
 
         <li>
-          <Link to="/dashboard">Dashboard</Link>
+          <Link to="/dashboard" className="block p-2 rounded hover:bg-gray-700">
+            Dashboard
+          </Link>
         </li>
 
         <li>
-          <Link to="/create-event">Create Event</Link>
+          <Link to="/create-event" className="block p-2 rounded hover:bg-gray-700">
+            Create Event
+          </Link>
+        </li>
+
+        <li>
+          <Link to="/ai-planner" className="block p-2 rounded hover:bg-gray-700">
+            AI Planner
+          </Link>
         </li>
 
       </ul>
