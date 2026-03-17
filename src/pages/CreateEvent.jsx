@@ -1,89 +1,65 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const CreateEvent = ({ setEvents, editingEvent, setEditingEvent }) => {
-
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    name: "",
-    location: "",
-    budget: "" ,
-    status:"Upcoming"
+    name: editingEvent?.name || "",
+    location: editingEvent?.location || "",
+    budget: editingEvent?.budget || "",
+    date: editingEvent?.date || "",
+    status: editingEvent?.status || "Upcoming",
   });
 
-  useEffect(() => {
-
-    if (!editingEvent) return;
-
-    setFormData({
-      name: editingEvent.name,
-      location: editingEvent.location,
-      budget: editingEvent.budget,
-      status: editingEvent.status
-    });
-
-  }, [editingEvent]);
-
   const handleChange = (e) => {
-
     const { name, value } = e.target;
 
     setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
-
   };
 
   const handleSubmit = (e) => {
-
     e.preventDefault();
 
     if (editingEvent) {
-
-      setEvents(prev =>
-        prev.map(event =>
-          event.id === editingEvent.id
-            ? { ...event, ...formData }
-            : event
-        )
+      setEvents((prev) =>
+        prev.map((event) =>
+          event.id === editingEvent.id ? { ...event, ...formData } : event,
+        ),
       );
 
       setEditingEvent(null);
-
     } else {
-
       const newEvent = {
         id: Date.now(),
-        ...formData
+        ...formData,
       };
 
-      setEvents(prev => [...prev, newEvent]);
-
+      setEvents((prev) => [...prev, newEvent]);
     }
 
+    // reset form
     setFormData({
       name: "",
       location: "",
-      budget: ""
+      budget: "",
+      status: "Upcoming",
     });
 
     navigate("/dashboard");
-
   };
 
   return (
     <div className="p-10 w-full">
-
       <h1 className="text-3xl font-bold mb-6">
         {editingEvent ? "Update Event" : "Create Event"}
       </h1>
 
       <div className="bg-white shadow-lg rounded-lg p-8 max-w-xl">
-
         <form onSubmit={handleSubmit} className="space-y-4">
-
           <div>
             <label className="block text-sm font-semibold mb-1">
               Event Name
@@ -100,9 +76,7 @@ const CreateEvent = ({ setEvents, editingEvent, setEditingEvent }) => {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold mb-1">
-              Location
-            </label>
+            <label className="block text-sm font-semibold mb-1">Location</label>
 
             <input
               type="text"
@@ -116,8 +90,20 @@ const CreateEvent = ({ setEvents, editingEvent, setEditingEvent }) => {
 
           <div>
             <label className="block text-sm font-semibold mb-1">
-              Budget
+              Event Date
             </label>
+
+            <input
+              type="date"
+              name="date"
+              value={formData.date}
+              onChange={handleChange}
+              className="border p-2 w-full rounded"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-semibold mb-1">Budget</label>
 
             <input
               type="number"
@@ -128,16 +114,17 @@ const CreateEvent = ({ setEvents, editingEvent, setEditingEvent }) => {
               className="border p-2 w-full rounded"
             />
           </div>
+
           <div>
             <label className="block text-sm font-semibold mb-1">
               Event Status
             </label>
 
             <select
-            name="status"
-            value={formData.status}
-            onChange={handleChange}
-            className="border p-2 w-full  rounded"
+              name="status"
+              value={formData.status}
+              onChange={handleChange}
+              className="border p-2 w-full rounded"
             >
               <option value="Upcoming">Upcoming</option>
               <option value="Completed">Completed</option>
@@ -151,11 +138,8 @@ const CreateEvent = ({ setEvents, editingEvent, setEditingEvent }) => {
           >
             {editingEvent ? "Update Event" : "Create Event"}
           </button>
-
         </form>
-
       </div>
-
     </div>
   );
 };

@@ -1,13 +1,11 @@
-
 import { useState } from "react";
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
-
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import CreateEvent from "./pages/CreateEvent";
+import AIPlanner from "./pages/AIPlanner";
 
 function AppContent() {
-
   const navigate = useNavigate();
 
   const [events, setEvents] = useState([]);
@@ -24,9 +22,7 @@ function AppContent() {
 
   return (
     <Routes>
-
       <Route path="/" element={<Home />} />
-
       <Route
         path="/dashboard"
         element={
@@ -48,7 +44,7 @@ function AppContent() {
           />
         }
       />
-
+      <Route path="/ai-planner" element={<AIPlanner />} />
     </Routes>
   );
 }
