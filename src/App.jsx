@@ -4,6 +4,9 @@ import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import CreateEvent from "./pages/CreateEvent";
 import AIPlanner from "./pages/AIPlanner";
+import GuestManagement from "./pages/GuestManagement";
+import TaskChecklist from "./pages/TaskChecklist";
+import axios from "axios";
 
 function AppContent() {
   const navigate = useNavigate();
@@ -16,9 +19,15 @@ function AppContent() {
     navigate("/create-event");
   };
 
-  const deleteEvent = (id) => {
-    setEvents(events.filter((event) => event.id !== id));
-  };
+const deleteEvent = async (id) => {
+  try {
+    await axios.delete(`http://localhost:5000/api/events/${id}`);
+
+    setEvents((prev) => prev.filter((event) => event._id !== id));
+  } catch (error) {
+    console.log(error);
+  }
+};
 
   return (
     <Routes>
@@ -28,6 +37,7 @@ function AppContent() {
         element={
           <Dashboard
             events={events}
+            setEvents={setEvents}
             deleteEvent={deleteEvent}
             editEvent={editEvent}
           />
@@ -45,6 +55,8 @@ function AppContent() {
         }
       />
       <Route path="/ai-planner" element={<AIPlanner />} />
+      <Route path="/guests" element={<GuestManagement />} />
+      <Route path="/tasks" element={<TaskChecklist />} />
     </Routes>
   );
 }

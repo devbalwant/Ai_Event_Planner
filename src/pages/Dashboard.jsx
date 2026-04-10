@@ -1,10 +1,26 @@
-import { useState } from "react";
+import {   useState } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import EventCard from "../components/EventCard";
+import axios from "axios";
+import {useEffect} from "react";
 
-const Dashboard = ({ events, deleteEvent, editEvent }) => {
+const Dashboard = ({ events,setEvents, deleteEvent, editEvent }) => {
   const [search, setSearch] = useState("");
+
+useEffect(() => {
+  const fetchEvents = async () => {
+    try {
+      const res = await axios.get("http://localhost:5000/api/events");
+      setEvents(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  fetchEvents();
+}, []);
+
   const [statusFilter, setStatusFilter] = useState("All");
 
   return (

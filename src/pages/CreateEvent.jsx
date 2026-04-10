@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const CreateEvent = ({ setEvents, editingEvent, setEditingEvent }) => {
   const navigate = useNavigate();
@@ -20,37 +21,48 @@ const CreateEvent = ({ setEvents, editingEvent, setEditingEvent }) => {
       [name]: value,
     }));
   };
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  if (!formData.name || !formData.location || !formData.budget) {
+  alert("Please fill all fields");
+  return;
+}
 
-    if (editingEvent) {
-      setEvents((prev) =>
-        prev.map((event) =>
-          event.id === editingEvent.id ? { ...event, ...formData } : event,
-        ),
+  if (editingEvent) {
+    setEvents((prev) =>
+      prev.map((event) =>
+        event.id === editingEvent.id
+          ? { ...event, ...formData }
+          : event
+      )
+    );
+
+    setEditingEvent(null);
+  } else {
+    try {
+      const res = await axios.post(
+        "http://localhost:5000/api/events",
+        formData
       );
 
-      setEditingEvent(null);
-    } else {
-      const newEvent = {
-        id: Date.now(),
-        ...formData,
-      };
-
-      setEvents((prev) => [...prev, newEvent]);
+      setEvents((prev) => [...prev, res.data]);
+    } catch (error) {
+      console.log(error);
+      alert("Error saving event");
     }
+    
+  } 
+  setFormData({
+    name: "",
+    location: "",
+    budget: "",
+    date: "",
+    status: "Upcoming",
+  });
 
-    // reset form
-    setFormData({
-      name: "",
-      location: "",
-      budget: "",
-      status: "Upcoming",
-    });
-
-    navigate("/dashboard");
-  };
+  navigate("/dashboard");
+};
 
   return (
     <div className="p-10 w-full">

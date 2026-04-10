@@ -38,7 +38,7 @@ const EventCard = ({ event, deleteEvent, editEvent }) => {
       </button>
 
       <button
-        onClick={() => deleteEvent(event.id)}
+        onClick={() => deleteEvent(event._id)}
         className="bg-red-500 cursor-pointer hover:bg-red-600 text-white px-4 py-2 mt-3 rounded"
       >
         Delete
