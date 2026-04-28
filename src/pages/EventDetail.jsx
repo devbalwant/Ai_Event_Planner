@@ -176,13 +176,13 @@ const EventDetail = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#f0f5e8] dark:bg-[#1a2e22]">
+      <div className="min-h-screen bg-[#E8DCC4] dark:bg-[#1a1a1a]">
         <Navbar />
         <div className="flex">
           <Sidebar />
           <div className="flex-1 flex items-center justify-center py-24">
             <svg
-              className="animate-spin h-8 w-8 text-[#437057] dark:text-white"
+              className="animate-spin h-8 w-8 text-[#8B1538] dark:text-white"
               fill="none"
               viewBox="0 0 24 24"
             >
@@ -213,7 +213,7 @@ const EventDetail = () => {
   const organizer = event.createdBy;
 
   return (
-    <div className="min-h-screen bg-[#f0f5e8] dark:bg-[#1a2e22]">
+    <div className="min-h-screen bg-[#E8DCC4] dark:bg-[#1a1a1a]">
       <Navbar />
       <div className="flex">
         <Sidebar />
@@ -228,10 +228,10 @@ const EventDetail = () => {
 
           <div className="max-w-3xl space-y-6">
             {/* ── Event Header ── */}
-            <div className="bg-white dark:bg-[#1f3329] border border-gray-200 dark:border-gray-700 rounded-2xl p-7">
+            <div className="bg-white dark:bg-[#242424] border border-gray-200 dark:border-gray-700 rounded-2xl p-7">
               <div className="flex justify-between items-start gap-4 mb-5">
                 <div>
-                  <h1 className="text-2xl font-bold text-[#437057] dark:text-white">
+                  <h1 className="text-2xl font-bold text-[#8B1538] dark:text-white">
                     {event.name}
                   </h1>
                   {event.category && (
@@ -253,7 +253,7 @@ const EventDetail = () => {
                         ? "bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 border-green-200 dark:border-green-700"
                         : event.isRejected
                           ? "bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 border-red-200 dark:border-red-800"
-                          : "bg-[#c5d9a0]/30 dark:bg-[#437057]/20 text-[#437057] dark:text-[#8aab5a] border-[#8aab5a]/40 dark:border-[#8aab5a]/30"
+                          : "bg-[#E8DCC4]/30 dark:bg-[#8B1538]/20 text-[#8B1538] dark:text-[#C4A574] border-[#C4A574]/40 dark:border-[#C4A574]/30"
                     }`}
                   >
                     {event.isApproved
@@ -308,7 +308,7 @@ const EventDetail = () => {
                 ].map((item) => (
                   <div
                     key={item.label}
-                    className="bg-[#e8f0d8] dark:bg-gray-800 rounded-xl p-4"
+                    className="bg-[#E8DCC4] dark:bg-gray-800 rounded-xl p-4"
                   >
                     <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">
                       {item.icon} {item.label}
@@ -325,7 +325,7 @@ const EventDetail = () => {
                 <div
                   className={`mt-4 text-xs font-medium px-3 py-2 rounded-lg w-fit ${
                     daysLeft > 0
-                      ? "bg-[#c5d9a0]/30 dark:bg-[#437057]/20 text-[#437057] dark:text-[#8aab5a]"
+                      ? "bg-[#E8DCC4]/30 dark:bg-[#8B1538]/20 text-[#8B1538] dark:text-[#C4A574]"
                       : "bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400"
                   }`}
                 >
@@ -340,14 +340,14 @@ const EventDetail = () => {
 
             {/* ── Organizer Info + Admin Actions ── */}
             {organizer && (
-              <div className="bg-white dark:bg-[#1f3329] border border-gray-200 dark:border-gray-700 rounded-2xl p-7">
-                <h2 className="text-base font-bold text-[#437057] dark:text-white mb-4">
+              <div className="bg-white dark:bg-[#242424] border border-gray-200 dark:border-gray-700 rounded-2xl p-7">
+                <h2 className="text-base font-bold text-[#8B1538] dark:text-white mb-4">
                   Organizer
                 </h2>
 
                 <div className="flex items-center justify-between gap-4 flex-wrap">
                   <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 bg-[#437057] text-white rounded-full flex items-center justify-center text-base font-bold shrink-0">
+                    <div className="w-11 h-11 bg-[#8B1538] text-white rounded-full flex items-center justify-center text-base font-bold shrink-0">
                       {organizer.name?.charAt(0).toUpperCase()}
                     </div>
                     <div>
@@ -363,7 +363,7 @@ const EventDetail = () => {
                             ? "bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 border-green-200 dark:border-green-700"
                             : organizer.isRejected
                               ? "bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 border-red-200 dark:border-red-800"
-                              : "bg-[#c5d9a0]/30 dark:bg-[#437057]/20 text-[#437057] dark:text-[#8aab5a] border-[#8aab5a]/40 dark:border-[#8aab5a]/30"
+                              : "bg-[#E8DCC4]/30 dark:bg-[#8B1538]/20 text-[#8B1538] dark:text-[#C4A574] border-[#C4A574]/40 dark:border-[#C4A574]/30"
                         }`}
                       >
                         {organizer.isVerified
@@ -426,8 +426,8 @@ const EventDetail = () => {
 
             {/* ── Admin Event Actions ── */}
             {user?.role === "admin" && (
-              <div className="bg-white dark:bg-[#1f3329] border border-gray-200 dark:border-gray-700 rounded-2xl p-6 space-y-4">
-                <h2 className="text-base font-bold text-[#437057] dark:text-white">
+              <div className="bg-white dark:bg-[#242424] border border-gray-200 dark:border-gray-700 rounded-2xl p-6 space-y-4">
+                <h2 className="text-base font-bold text-[#8B1538] dark:text-white">
                   Event Actions
                 </h2>
 

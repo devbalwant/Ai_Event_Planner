@@ -13,9 +13,9 @@ import toast from "react-hot-toast";
 
 // ── Pending Event Row ────────────────────────────────────
 const PendingEventRow = ({ event, onApprove, onReject, actionId }) => (
-  <div className="bg-white dark:bg-[#1f3329] border border-[#8aab5a]/40 dark:border-[#8aab5a]/30 rounded-xl p-5 flex items-center justify-between gap-4 flex-wrap">
+  <div className="bg-white dark:bg-[#242424] border border-[#C4A574]/40 dark:border-[#C4A574]/30 rounded-xl p-5 flex items-center justify-between gap-4 flex-wrap">
     <div className="flex items-center gap-3">
-      <div className="w-10 h-10 bg-[#c5d9a0]/30 dark:bg-[#437057]/20 text-[#437057] dark:text-[#8aab5a] rounded-lg flex items-center justify-center text-lg shrink-0">
+      <div className="w-10 h-10 bg-[#E8DCC4]/30 dark:bg-[#8B1538]/20 text-[#8B1538] dark:text-[#C4A574] rounded-lg flex items-center justify-center text-lg shrink-0">
         📋
       </div>
       <div>
@@ -158,14 +158,14 @@ const ManageEvents = () => {
     });
 
   return (
-    <div className="min-h-screen bg-[#f0f5e8] dark:bg-[#1a2e22]">
+    <div className="min-h-screen bg-[#E8DCC4] dark:bg-[#1a1a1a]">
       <Navbar />
       <div className="flex">
         <Sidebar />
         <div className="flex-1 p-8">
           {/* Header */}
           <div className="mb-7">
-            <h1 className="text-2xl font-bold text-[#437057] dark:text-white">
+            <h1 className="text-2xl font-bold text-[#8B1538] dark:text-white">
               All Events
             </h1>
             <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">
@@ -179,7 +179,7 @@ const ManageEvents = () => {
               {
                 label: "Total",
                 value: total,
-                color: "text-[#437057] dark:text-white",
+                color: "text-[#8B1538] dark:text-white",
               },
               {
                 label: "Verified Org",
@@ -189,7 +189,7 @@ const ManageEvents = () => {
               {
                 label: "Pending Org",
                 value: pending,
-                color: "text-[#437057] dark:text-[#8aab5a]",
+                color: "text-[#8B1538] dark:text-[#C4A574]",
               },
               {
                 label: "Pending Approval",
@@ -199,7 +199,7 @@ const ManageEvents = () => {
             ].map((s) => (
               <div
                 key={s.label}
-                className="bg-white dark:bg-[#1f3329] border border-gray-200 dark:border-gray-700 rounded-xl px-5 py-3 text-sm"
+                className="bg-white dark:bg-[#242424] border border-gray-200 dark:border-gray-700 rounded-xl px-5 py-3 text-sm"
               >
                 <span className="text-gray-500 dark:text-gray-400">
                   {s.label}:{" "}
@@ -214,9 +214,8 @@ const ManageEvents = () => {
             <button
               onClick={() => setActiveTab("all")}
               className={`px-5 py-2.5 rounded-lg text-sm font-semibold transition-all border ${
-                activeTab === "all"
-                  ? "bg-[#437057] text-white border-[#437057]"
-                  : "bg-white dark:bg-[#1f3329] text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
+                activeTab === "all" ? "bg-[#C4A574] text-[#0f0f0f] border-[#C4A574]"
+                  : "bg-white dark:bg-[#242424] text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
               }`}
             >
               All Events
@@ -224,9 +223,8 @@ const ManageEvents = () => {
             <button
               onClick={() => setActiveTab("pending")}
               className={`px-5 py-2.5 rounded-lg text-sm font-semibold transition-all border flex items-center gap-2 ${
-                activeTab === "pending"
-                  ? "bg-[#8aab5a] text-white border-[#8aab5a]"
-                  : "bg-white dark:bg-[#1f3329] text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
+                activeTab === "pending" ? "bg-[#C4A574] text-[#0f0f0f] border-[#C4A574]"
+                  : "bg-white dark:bg-[#242424] text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
               }`}
             >
               Pending Approval
@@ -234,8 +232,8 @@ const ManageEvents = () => {
                 <span
                   className={`text-xs px-2 py-0.5 rounded-full font-bold ${
                     activeTab === "pending"
-                      ? "bg-white text-[#437057]"
-                      : "bg-[#c5d9a0]/30 dark:bg-[#437057]/20 text-[#437057] dark:text-[#8aab5a]"
+                      ? "bg-white text-[#8B1538]"
+                      : "bg-[#E8DCC4]/30 dark:bg-[#8B1538]/20 text-[#8B1538] dark:text-[#C4A574]"
                   }`}
                 >
                   {pendingEvents.length}
@@ -250,7 +248,7 @@ const ManageEvents = () => {
               {pendingLoading ? (
                 <div className="flex items-center justify-center py-16">
                   <svg
-                    className="animate-spin h-7 w-7 text-[#437057] dark:text-white"
+                    className="animate-spin h-7 w-7 text-[#8B1538] dark:text-white"
                     fill="none"
                     viewBox="0 0 24 24"
                   >
@@ -270,7 +268,7 @@ const ManageEvents = () => {
                   </svg>
                 </div>
               ) : pendingEvents.length === 0 ? (
-                <div className="text-center py-16 text-gray-400 dark:text-gray-500 text-sm bg-white dark:bg-[#1f3329] border border-gray-200 dark:border-gray-700 rounded-2xl">
+                <div className="text-center py-16 text-gray-400 dark:text-gray-500 text-sm bg-white dark:bg-[#242424] border border-gray-200 dark:border-gray-700 rounded-2xl">
                   No events pending approval.
                 </div>
               ) : (
@@ -299,7 +297,7 @@ const ManageEvents = () => {
                   placeholder="Search by event, location or organizer..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  className="border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1f3329] dark:text-gray-100 px-4 py-2.5 rounded-lg w-full sm:w-80 text-sm focus:outline-none focus:ring-2 focus:ring-[#8aab5a]/20 focus:border-[#437057] dark:focus:border-[#8aab5a]"
+                  className="border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#242424] dark:text-gray-100 px-4 py-2.5 rounded-lg w-full sm:w-80 text-sm focus:outline-none focus:ring-2 focus:ring-[#C4A574]/20 focus:border-[#8B1538] dark:focus:border-[#C4A574]"
                 />
               </div>
 
@@ -320,8 +318,8 @@ const ManageEvents = () => {
                       onClick={() => setOrgFilter(btn.value)}
                       className={`px-4 py-2 rounded-lg text-sm font-medium transition-all border ${
                         orgFilter === btn.value
-                          ? "bg-[#437057] text-white border-[#437057]"
-                          : "bg-white dark:bg-[#1f3329] text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
+                          ? "bg-[#C4A574] text-[#0f0f0f] border-[#C4A574]"
+                          : "bg-white dark:bg-[#242424] text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
                       }`}
                     >
                       {btn.label}
@@ -342,8 +340,8 @@ const ManageEvents = () => {
                       onClick={() => setStatusFilter(f)}
                       className={`px-4 py-2 rounded-lg text-sm font-medium transition-all border ${
                         statusFilter === f
-                          ? "bg-[#8aab5a] text-white border-[#8aab5a]"
-                          : "bg-white dark:bg-[#1f3329] text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
+                          ? "bg-[#C4A574] text-white border-[#C4A574]"
+                          : "bg-white dark:bg-[#242424] text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
                       }`}
                     >
                       {f}
@@ -355,7 +353,7 @@ const ManageEvents = () => {
               {loading ? (
                 <div className="flex flex-col items-center justify-center py-24">
                   <svg
-                    className="animate-spin h-8 w-8 text-[#437057] dark:text-white mb-4"
+                    className="animate-spin h-8 w-8 text-[#8B1538] dark:text-white mb-4"
                     fill="none"
                     viewBox="0 0 24 24"
                   >
@@ -378,7 +376,7 @@ const ManageEvents = () => {
                   </p>
                 </div>
               ) : filtered.length === 0 ? (
-                <div className="text-center py-16 text-gray-400 dark:text-gray-500 text-sm bg-white dark:bg-[#1f3329] border border-gray-200 dark:border-gray-700 rounded-2xl">
+                <div className="text-center py-16 text-gray-400 dark:text-gray-500 text-sm bg-white dark:bg-[#242424] border border-gray-200 dark:border-gray-700 rounded-2xl">
                   No events found for selected filters.
                 </div>
               ) : (

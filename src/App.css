@@ -2,3 +2,64 @@
 
 /* Enable class-based dark mode */
 @custom-variant dark (&:where(.dark, .dark *));
+
+/* Custom Color Palette */
+:root {
+  /* Light Mode Colors */
+  --maroon-primary: #8b1538;
+  --maroon-dark: #5a0e24;
+  --maroon-light: #a61d45;
+  --cream: #e8dcc4;
+  --cream-dark: #d4c8b0;
+  --gold: #c4a574;
+  --gold-dark: #b09560;
+  --gold-light: #d4b584;
+
+  /* Dark Mode Colors */
+  --dark-bg-primary: #0f0f0f;
+  --dark-bg-secondary: #1a1a1a;
+  --dark-bg-card: #242424;
+  --dark-text-primary: #e5e5e5;
+  --dark-text-secondary: #a3a3a3;
+  --dark-border: #333333;
+}
+
+/* Smooth transitions */
+* {
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* Custom scrollbar - Light Mode */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--maroon-primary);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--maroon-dark);
+}
+
+/* Custom scrollbar - Dark Mode */
+.dark ::-webkit-scrollbar-track {
+  background: var(--dark-bg-secondary);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 5px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-dark);
+}

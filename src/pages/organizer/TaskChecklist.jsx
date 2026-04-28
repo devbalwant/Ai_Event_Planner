@@ -57,13 +57,13 @@ const TaskChecklist = () => {
   const progress = total === 0 ? 0 : Math.floor((completedCount / total) * 100);
 
   return (
-    <div className="min-h-screen bg-[#f0f5e8] dark:bg-[#1a2e22]">
+    <div className="min-h-screen bg-[#E8DCC4] dark:bg-[#1a1a1a]">
       <Navbar />
       <div className="flex">
         <Sidebar />
         <div className="flex-1 p-8">
           <div className="mb-7">
-            <h1 className="text-2xl font-bold text-[#437057] dark:text-white">
+            <h1 className="text-2xl font-bold text-[#8B1538] dark:text-white">
               Task Checklist
             </h1>
             <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">
@@ -73,18 +73,18 @@ const TaskChecklist = () => {
 
           {/* Progress */}
           {total > 0 && (
-            <div className="bg-white dark:bg-[#1f3329] border border-gray-200 dark:border-gray-700 rounded-2xl p-5 max-w-xl mb-6 shadow-sm">
+            <div className="bg-white dark:bg-[#242424] border border-gray-200 dark:border-gray-700 rounded-2xl p-5 max-w-xl mb-6 shadow-sm">
               <div className="flex justify-between items-center mb-3">
                 <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
                   Overall Progress
                 </span>
-                <span className="text-sm font-bold text-[#437057] dark:text-white">
+                <span className="text-sm font-bold text-[#8B1538] dark:text-white">
                   {completedCount}/{total} done
                 </span>
               </div>
               <div className="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-2.5">
                 <div
-                  className="bg-[#8aab5a] dark:bg-[#8aab5a] h-2.5 rounded-full transition-all duration-500"
+                  className="bg-[#C4A574] dark:bg-[#C4A574] h-2.5 rounded-full transition-all duration-500"
                   style={{ width: `${progress}%` }}
                 />
               </div>
@@ -95,7 +95,7 @@ const TaskChecklist = () => {
           )}
 
           {/* Add Task */}
-          <div className="bg-white dark:bg-[#1f3329] border border-gray-200 dark:border-gray-700 rounded-2xl p-6 shadow-sm max-w-xl mb-6">
+          <div className="bg-white dark:bg-[#242424] border border-gray-200 dark:border-gray-700 rounded-2xl p-6 shadow-sm max-w-xl mb-6">
             <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-3">
               Add New Task
             </h2>
@@ -106,11 +106,11 @@ const TaskChecklist = () => {
                 value={taskName}
                 onChange={(e) => setTaskName(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && addTask()}
-                className="flex-1 px-4 py-2.5 border border-gray-200 dark:border-gray-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#8aab5a]/20 focus:border-[#437057] dark:focus:border-[#8aab5a] bg-white dark:bg-[#1f3329] dark:text-gray-100"
+                className="flex-1 px-4 py-2.5 border border-gray-200 dark:border-gray-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#C4A574]/20 focus:border-[#8B1538] dark:focus:border-[#C4A574] bg-white dark:bg-[#242424] dark:text-gray-100"
               />
               <button
                 onClick={() => addTask()}
-                className="bg-[#437057] hover:bg-[#365a46] text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors shrink-0"
+                className="bg-[#C4A574] hover:bg-[#B09560] text-[#0f0f0f] px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors shrink-0"
               >
                 Add
               </button>
@@ -118,7 +118,7 @@ const TaskChecklist = () => {
             {tasks.length === 0 && (
               <button
                 onClick={loadDefaults}
-                className="mt-3 text-xs text-[#437057] dark:text-[#8aab5a] hover:underline font-medium"
+                className="mt-3 text-xs text-[#8B1538] dark:text-[#C4A574] hover:underline font-medium"
               >
                 + Load default event tasks
               </button>
@@ -135,7 +135,7 @@ const TaskChecklist = () => {
               {tasks.map((task) => (
                 <div
                   key={task.id}
-                  className={`bg-white dark:bg-[#1f3329] border rounded-xl px-5 py-4 flex items-center justify-between gap-4 transition-all ${
+                  className={`bg-white dark:bg-[#242424] border rounded-xl px-5 py-4 flex items-center justify-between gap-4 transition-all ${
                     task.completed
                       ? "border-green-200 dark:border-green-700 opacity-70"
                       : "border-gray-200 dark:border-gray-700"
@@ -147,7 +147,7 @@ const TaskChecklist = () => {
                       className={`w-5 h-5 rounded border-2 flex items-center justify-center shrink-0 transition-colors ${
                         task.completed
                           ? "bg-green-500 border-green-500 text-white"
-                          : "border-gray-300 dark:border-gray-600 hover:border-[#437057] dark:hover:border-[#8aab5a]"
+                          : "border-gray-300 dark:border-gray-600 hover:border-[#8B1538] dark:hover:border-[#C4A574]"
                       }`}
                     >
                       {task.completed && (

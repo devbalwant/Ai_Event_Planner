@@ -61,10 +61,10 @@ const BookingCard = ({ booking, onCancel }) => {
 
   return (
     <div
-      className={`bg-white dark:bg-[#1f3329] border rounded-xl p-5 flex flex-col gap-3 transition-shadow hover:shadow-md ${
+      className={`bg-white dark:bg-[#242424] border rounded-xl p-5 flex flex-col gap-3 transition-shadow hover:shadow-lg ${
         booking.status === "cancelled"
           ? "border-red-100 dark:border-red-900 opacity-60"
-          : "border-gray-200 dark:border-gray-700"
+          : "border-[#C4A574]/30 dark:border-[#333333]"
       }`}
     >
       <div className="flex justify-between items-start gap-2">
@@ -102,11 +102,11 @@ const BookingCard = ({ booking, onCancel }) => {
       </div>
 
       {booking.passCode && booking.status === "confirmed" && (
-        <div className="bg-[#e8f0d8] dark:bg-gray-800 border border-[#8aab5a]/40 dark:border-[#8aab5a]/30 rounded-lg px-4 py-3">
-          <p className="text-xs text-gray-500 dark:text-gray-400 mb-1 font-medium">
+        <div className="bg-[#C4A574]/20 dark:bg-[#C4A574]/10 border border-[#C4A574]/40 dark:border-[#C4A574]/30 rounded-lg px-4 py-3">
+          <p className="text-xs text-[#8B1538]/70 dark:text-[#a3a3a3] mb-1 font-medium">
             Your Pass Code
           </p>
-          <p className="text-lg font-bold text-[#437057] dark:text-[#8aab5a] tracking-widest">
+          <p className="text-lg font-bold text-[#8B1538] dark:text-[#C4A574] tracking-widest">
             {booking.passCode}
           </p>
         </div>
@@ -116,8 +116,8 @@ const BookingCard = ({ booking, onCancel }) => {
         <div
           className={`text-xs font-medium px-3 py-1.5 rounded w-fit ${
             daysLeft > 0
-              ? "bg-[#c5d9a0]/30 dark:bg-[#437057]/20 text-[#437057] dark:text-[#8aab5a]"
-              : "bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400"
+              ? "bg-[#C4A574]/20 dark:bg-[#C4A574]/10 text-[#8B1538] dark:text-[#C4A574]"
+              : "bg-[#E8DCC4] dark:bg-[#0f0f0f] text-[#8B1538]/70 dark:text-[#a3a3a3]"
           }`}
         >
           {daysLeft > 0

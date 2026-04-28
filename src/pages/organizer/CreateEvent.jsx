@@ -77,17 +77,17 @@ const CreateEvent = ({ editingEvent, setEditingEvent }) => {
   };
 
   const inputClass =
-    "w-full px-4 py-2.5 border border-gray-200 dark:border-gray-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#8aab5a]/20 focus:border-[#437057] dark:focus:border-[#8aab5a] bg-white dark:bg-[#1f3329] dark:text-gray-100";
+    "w-full px-4 py-2.5 border border-gray-200 dark:border-gray-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#C4A574]/20 focus:border-[#8B1538] dark:focus:border-[#C4A574] bg-white dark:bg-[#242424] dark:text-gray-100";
 
   return (
-    <div className="min-h-screen bg-[#f0f5e8] dark:bg-[#1a2e22]">
+    <div className="min-h-screen bg-[#E8DCC4] dark:bg-[#1a1a1a]">
       <Navbar />
       <div className="flex">
         <Sidebar />
         <div className="flex-1 p-8">
           <div className="max-w-2xl">
             <div className="mb-7">
-              <h1 className="text-2xl font-bold text-[#437057] dark:text-white">
+              <h1 className="text-2xl font-bold text-[#8B1538] dark:text-white">
                 {editingEvent ? "Update Event" : "Create New Event"}
               </h1>
               <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">
@@ -97,7 +97,7 @@ const CreateEvent = ({ editingEvent, setEditingEvent }) => {
               </p>
             </div>
 
-            <div className="bg-white dark:bg-[#1f3329] border border-gray-200 dark:border-gray-700 rounded-2xl p-8 shadow-sm">
+            <div className="bg-white dark:bg-[#242424] border border-gray-200 dark:border-gray-700 rounded-2xl p-8 shadow-sm">
               <form onSubmit={handleSubmit} className="space-y-5">
                 {/* Name */}
                 <div>
@@ -277,14 +277,14 @@ const CreateEvent = ({ editingEvent, setEditingEvent }) => {
                 </div>
 
                 {/* Public toggle */}
-                <div className="flex items-center gap-3 p-4 bg-[#e8f0d8] dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+                <div className="flex items-center gap-3 p-4 bg-[#E8DCC4] dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
                   <input
                     type="checkbox"
                     name="isPublic"
                     id="isPublic"
                     checked={formData.isPublic}
                     onChange={handleChange}
-                    className="w-4 h-4 accent-[#437057]"
+                    className="w-4 h-4 accent-[#8B1538]"
                   />
                   <div>
                     <label
@@ -311,7 +311,7 @@ const CreateEvent = ({ editingEvent, setEditingEvent }) => {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="flex-1 bg-[#437057] hover:bg-[#365a46] text-white py-2.5 rounded-lg text-sm font-semibold transition-colors flex items-center justify-center gap-2"
+                    className="flex-1 bg-[#C4A574] hover:bg-[#B09560] text-[#0f0f0f] py-2.5 rounded-lg text-sm font-semibold transition-colors flex items-center justify-center gap-2"
                   >
                     {loading ? (
                       <>

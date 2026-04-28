@@ -88,32 +88,38 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#1f3329] flex flex-col">
+    <div className="min-h-screen bg-[#E8DCC4] dark:bg-[#0f0f0f] flex flex-col">
       <Navbar />
 
       {/* ── Hero ── */}
       <section
         ref={heroRef}
-        className="bg-[#1a2e22] text-white py-24 px-6 flex items-center justify-center"
+        className="bg-[#8B1538] dark:bg-[#1a1a1a] text-[#E8DCC4] py-24 px-6 flex items-center justify-center relative overflow-hidden"
       >
-        <div className="hero-content text-center max-w-3xl">
-          <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
+        {/* Decorative pattern overlay */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-64 h-64 bg-[#C4A574] rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#5A0E24] dark:bg-[#C4A574] rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="hero-content text-center max-w-3xl relative z-10">
+          <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6 text-[#E8DCC4]">
             Plan Your Perfect Event
             <br />
-            <span className="text-[#8aab5a]">with AI</span>
+            <span className="text-[#C4A574]">with AI</span>
           </h1>
-          <p className="text-gray-300 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
+          <p className="text-[#D4C8B0] dark:text-[#a3a3a3] text-lg mb-10 max-w-xl mx-auto leading-relaxed">
             Discover amazing events, book tickets instantly, and let AI create
             personalized event plans for you.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <Link to="/register?role=attendee">
-              <button className="bg-[#8aab5a] hover:bg-[#7a9a4e] text-white px-8 py-3 rounded-lg font-semibold text-base transition-colors">
+              <button className="bg-[#C4A574] hover:bg-[#B09560] text-[#0f0f0f] px-8 py-3 rounded-lg font-semibold text-base transition-all shadow-lg hover:shadow-xl">
                 Explore Events
               </button>
             </Link>
             <Link to="/register?role=organizer">
-              <button className="border-2 border-white hover:bg-white hover:text-[#437057] text-white px-8 py-3 rounded-lg font-semibold text-base transition-all">
+              <button className="border-2 border-[#E8DCC4] dark:border-[#C4A574] hover:bg-[#E8DCC4] dark:hover:bg-[#C4A574] hover:text-[#8B1538] dark:hover:text-[#0f0f0f] text-[#E8DCC4] dark:text-[#C4A574] px-8 py-3 rounded-lg font-semibold text-base transition-all">
                 Generate AI Plan
               </button>
             </Link>
@@ -124,14 +130,14 @@ const Home = () => {
       {/* ── Features ── */}
       <section
         ref={featuresRef}
-        className="py-16 px-6 bg-white dark:bg-[#1f3329]"
+        className="py-16 px-6 bg-[#E8DCC4] dark:bg-[#0f0f0f]"
       >
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+            <h2 className="text-3xl font-bold text-[#8B1538] dark:text-[#e5e5e5] mb-3">
               Why Choose EventPro?
             </h2>
-            <p className="text-gray-500 dark:text-gray-400">
+            <p className="text-[#8B1538]/70 dark:text-[#a3a3a3]">
               Experience the future of event management
             </p>
           </div>
@@ -139,15 +145,15 @@ const Home = () => {
             {features.map((f) => (
               <div
                 key={f.title}
-                className="feature-card bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 hover:shadow-md transition-shadow"
+                className="feature-card bg-white dark:bg-[#242424] rounded-2xl p-6 hover:shadow-xl transition-all hover:-translate-y-1 border border-[#C4A574]/20 dark:border-[#333333]"
               >
-                <div className="w-12 h-12 bg-[#c5d9a0]/30 dark:bg-[#437057]/20 rounded-xl flex items-center justify-center text-2xl mb-4">
+                <div className="w-12 h-12 bg-[#C4A574]/30 dark:bg-[#C4A574]/20 rounded-xl flex items-center justify-center text-2xl mb-4">
                   {f.icon}
                 </div>
-                <h3 className="text-base font-bold text-gray-900 dark:text-gray-100 mb-2">
+                <h3 className="text-base font-bold text-[#8B1538] dark:text-[#e5e5e5] mb-2">
                   {f.title}
                 </h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                <p className="text-sm text-[#8B1538]/70 dark:text-[#a3a3a3] leading-relaxed">
                   {f.desc}
                 </p>
               </div>
@@ -157,13 +163,13 @@ const Home = () => {
       </section>
 
       {/* ── Roles ── */}
-      <section className="py-16 px-6 bg-gray-50 dark:bg-gray-800">
+      <section className="py-16 px-6 bg-white dark:bg-[#1a1a1a]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+            <h2 className="text-3xl font-bold text-[#8B1538] dark:text-[#e5e5e5] mb-3">
               Built for Every Role
             </h2>
-            <p className="text-gray-500 dark:text-gray-400">
+            <p className="text-[#8B1538]/70 dark:text-[#a3a3a3]">
               One platform, three powerful dashboards
             </p>
           </div>
@@ -172,35 +178,35 @@ const Home = () => {
               {
                 role: "Admin",
                 icon: "🛡️",
-                color: "bg-red-500",
+                color: "bg-[#5A0E24] dark:bg-[#242424]",
                 desc: "Verify organizers, monitor all events and manage the platform.",
               },
               {
                 role: "Organizer",
                 icon: "🎪",
-                color: "bg-[#437057]",
+                color: "bg-[#C4A574]",
                 desc: "Create events, manage guests, use AI planner and track tasks.",
               },
               {
                 role: "Attendee",
                 icon: "🎟️",
-                color: "bg-blue-500",
+                color: "bg-[#8B1538] dark:bg-[#C4A574]",
                 desc: "Browse events, book tickets and get your digital event pass.",
               },
             ].map((r) => (
               <div
                 key={r.role}
-                className="bg-white dark:bg-[#1f3329] rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
+                className="bg-[#E8DCC4] dark:bg-[#242424] rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1 border border-[#C4A574]/30 dark:border-[#333333]"
               >
                 <div
-                  className={`w-12 h-12 ${r.color} rounded-xl flex items-center justify-center text-2xl mb-4`}
+                  className={`w-12 h-12 ${r.color} rounded-xl flex items-center justify-center text-2xl mb-4 shadow-md`}
                 >
                   {r.icon}
                 </div>
-                <h3 className="text-base font-bold text-gray-900 dark:text-gray-100 mb-2">
+                <h3 className="text-base font-bold text-[#8B1538] dark:text-[#e5e5e5] mb-2">
                   {r.role}
                 </h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+                <p className="text-sm text-[#8B1538]/70 dark:text-[#a3a3a3]">
                   {r.desc}
                 </p>
               </div>
@@ -210,22 +216,31 @@ const Home = () => {
       </section>
 
       {/* ── CTA ── */}
-      <section ref={ctaRef} className="bg-[#1a2e22] py-20 px-6">
-        <div className="cta-content text-center max-w-xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-3">
+      <section
+        ref={ctaRef}
+        className="bg-[#8B1538] dark:bg-[#1a1a1a] py-20 px-6 relative overflow-hidden"
+      >
+        {/* Decorative elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 right-10 w-72 h-72 bg-[#C4A574] rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#5A0E24] dark:bg-[#C4A574] rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="cta-content text-center max-w-xl mx-auto relative z-10">
+          <h2 className="text-3xl font-bold text-[#E8DCC4] mb-3">
             Ready to Get Started?
           </h2>
-          <p className="text-gray-400 mb-8">
+          <p className="text-[#D4C8B0] dark:text-[#a3a3a3] mb-8">
             Join thousands of users who trust EventPro
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <Link to="/register?role=attendee">
-              <button className="bg-[#8aab5a] hover:bg-[#7a9a4e] text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+              <button className="bg-[#C4A574] hover:bg-[#B09560] text-[#0f0f0f] px-8 py-3 rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl">
                 Join Event
               </button>
             </Link>
             <Link to="/register?role=organizer">
-              <button className="border-2 border-white hover:bg-white hover:text-[#437057] text-white px-8 py-3 rounded-lg font-semibold transition-all">
+              <button className="border-2 border-[#E8DCC4] dark:border-[#C4A574] hover:bg-[#E8DCC4] dark:hover:bg-[#C4A574] hover:text-[#8B1538] dark:hover:text-[#0f0f0f] text-[#E8DCC4] dark:text-[#C4A574] px-8 py-3 rounded-lg font-semibold transition-all">
                 Become Organizer
               </button>
             </Link>
@@ -234,7 +249,7 @@ const Home = () => {
       </section>
 
       {/* ── Footer ── */}
-      <footer className="bg-black py-6 text-center text-xs text-gray-500">
+      <footer className="bg-[#5A0E24] dark:bg-[#0a0a0a] py-6 text-center text-xs text-[#D4C8B0] dark:text-[#a3a3a3]">
         © 2026 EventPro. All rights reserved.
       </footer>
     </div>

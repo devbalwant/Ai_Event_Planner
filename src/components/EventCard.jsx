@@ -98,11 +98,11 @@ export const OrganizerEventCard = ({ event, onDelete, onEdit }) => {
   };
 
   return (
-    <div className="bg-white dark:bg-[#1f3329] border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden flex flex-col hover:shadow-md transition-shadow">
+    <div className="bg-white dark:bg-[#242424] border border-[#C4A574]/30 dark:border-[#333333] rounded-xl overflow-hidden flex flex-col hover:shadow-xl transition-all hover:-translate-y-1">
       <EventImage image={event.image} name={event.name} />
       <div className="p-5 flex flex-col gap-3 flex-1">
         <div className="flex justify-between items-start gap-2">
-          <h2 className="text-base font-semibold text-gray-800 dark:text-gray-100 leading-snug">
+          <h2 className="text-base font-semibold text-[#8B1538] dark:text-[#e5e5e5] leading-snug">
             {event.name}
           </h2>
           <span
@@ -111,7 +111,7 @@ export const OrganizerEventCard = ({ event, onDelete, onEdit }) => {
             {event.status}
           </span>
         </div>
-        <div className="space-y-1.5 text-sm text-gray-500 dark:text-gray-400">
+        <div className="space-y-1.5 text-sm text-[#8B1538]/70 dark:text-[#a3a3a3]">
           <p className="flex items-center gap-2">
             <span>📍</span>
             {event.location}
@@ -137,8 +137,8 @@ export const OrganizerEventCard = ({ event, onDelete, onEdit }) => {
           <div
             className={`text-xs font-medium px-3 py-1.5 rounded w-fit ${
               daysLeft > 0
-                ? "bg-[#c5d9a0]/30 dark:bg-[#437057]/20 text-[#437057] dark:text-[#8aab5a]"
-                : "bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400"
+                ? "bg-[#C4A574]/20 dark:bg-[#C4A574]/10 text-[#8B1538] dark:text-[#C4A574]"
+                : "bg-[#E8DCC4] dark:bg-[#0f0f0f] text-[#8B1538]/70 dark:text-[#a3a3a3]"
             }`}
           >
             {daysLeft > 0
@@ -154,7 +154,7 @@ export const OrganizerEventCard = ({ event, onDelete, onEdit }) => {
               ? "bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300 border-green-200 dark:border-green-700"
               : event.isRejected
                 ? "bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 border-red-200 dark:border-red-700"
-                : "bg-[#c5d9a0]/30 dark:bg-[#437057]/20 text-[#437057] dark:text-[#8aab5a] border-[#8aab5a]/40 dark:border-[#8aab5a]/30"
+                : "bg-[#C4A574]/20 dark:bg-[#C4A574]/10 text-[#8B1538] dark:text-[#C4A574] border-[#C4A574]/40 dark:border-[#C4A574]/30"
           }`}
         >
           {event.isApproved
@@ -163,21 +163,21 @@ export const OrganizerEventCard = ({ event, onDelete, onEdit }) => {
               ? "✗ Rejected"
               : "⏳ Pending Approval"}
         </div>
-        <div className="flex gap-2 pt-1 border-t border-gray-100 dark:border-gray-700 mt-auto">
+        <div className="flex gap-2 pt-1 border-t border-[#C4A574]/20 dark:border-[#C4A574]/10 mt-auto">
           <Link to={`/events/${event._id}`} className="flex-1">
-            <button className="w-full text-sm font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 py-2 rounded-lg border border-gray-200 dark:border-gray-700 transition-colors">
+            <button className="w-full text-sm font-medium text-[#8B1538]/70 dark:text-[#a3a3a3] hover:bg-[#E8DCC4] dark:hover:bg-[#242424] py-2 rounded-lg border border-[#C4A574]/30 dark:border-[#333333] transition-all">
               View
             </button>
           </Link>
           <button
             onClick={() => onEdit(event)}
-            className="flex-1 text-sm font-medium text-[#437057] dark:text-[#8aab5a] hover:bg-gray-50 dark:hover:bg-gray-800 py-2 rounded-lg border border-gray-200 dark:border-gray-700 transition-colors"
+            className="flex-1 text-sm font-medium text-[#8B1538] dark:text-[#C4A574] hover:bg-[#E8DCC4] dark:hover:bg-[#242424] py-2 rounded-lg border border-[#C4A574]/30 dark:border-[#333333] transition-all"
           >
             Edit
           </button>
           <button
             onClick={handleDelete}
-            className="flex-1 text-sm font-medium text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 py-2 rounded-lg border border-red-100 dark:border-red-800 transition-colors"
+            className="flex-1 text-sm font-medium text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 py-2 rounded-lg border border-red-100 dark:border-red-800 transition-all"
           >
             Delete
           </button>
@@ -192,7 +192,7 @@ export const AttendeeEventCard = ({ event, isBooked }) => {
   const daysLeft = getDaysLeft(event.date);
 
   return (
-    <div className="bg-white dark:bg-[#1f3329] border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden flex flex-col hover:shadow-md transition-shadow">
+    <div className="bg-white dark:bg-[#242424] border border-[#C4A574]/30 dark:border-[#333333] rounded-xl overflow-hidden flex flex-col hover:shadow-xl transition-all hover:-translate-y-1">
       <EventImage image={event.image} name={event.name} height="h-44" />
       <div className="p-5 flex flex-col gap-3 flex-1">
         <div className="flex justify-between items-start gap-2">
@@ -235,8 +235,8 @@ export const AttendeeEventCard = ({ event, isBooked }) => {
           <div
             className={`text-xs font-medium px-3 py-1.5 rounded w-fit ${
               daysLeft > 0
-                ? "bg-[#c5d9a0]/30 dark:bg-[#437057]/20 text-[#437057] dark:text-[#8aab5a]"
-                : "bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400"
+                ? "bg-[#C4A574]/20 dark:bg-[#C4A574]/10 text-[#8B1538] dark:text-[#C4A574]"
+                : "bg-[#E8DCC4] dark:bg-[#0f0f0f] text-[#8B1538]/70 dark:text-[#a3a3a3]"
             }`}
           >
             {daysLeft > 0
@@ -264,7 +264,7 @@ export const AttendeeEventCard = ({ event, isBooked }) => {
             <Link to={`/attendee/book/${event._id}`}>
               <button
                 disabled={daysLeft !== null && daysLeft <= 0}
-                className="w-full bg-[#437057] hover:bg-[#365a46] disabled:bg-gray-200 dark:disabled:bg-gray-700 disabled:text-gray-400 text-white py-2 rounded-lg text-sm font-semibold transition-colors"
+                className="w-full bg-[#C4A574] hover:bg-[#B09560] disabled:bg-gray-200 dark:disabled:bg-gray-700 disabled:text-gray-400 text-[#0f0f0f] py-2 rounded-lg text-sm font-semibold transition-all shadow-md hover:shadow-lg"
               >
                 {daysLeft !== null && daysLeft <= 0
                   ? "Event Ended"
@@ -299,11 +299,11 @@ export const AdminEventCard = ({
         }
       : {
           label: "Pending",
-          cls: "bg-[#c5d9a0]/30 dark:bg-[#437057]/20 text-[#437057] dark:text-[#8aab5a] border-[#8aab5a]/40 dark:border-[#8aab5a]/30",
+          cls: "bg-[#C4A574]/20 dark:bg-[#C4A574]/10 text-[#8B1538] dark:text-[#C4A574] border-[#C4A574]/40 dark:border-[#C4A574]/30",
         };
 
   return (
-    <div className="bg-white dark:bg-[#1f3329] border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden flex flex-col hover:shadow-md transition-shadow">
+    <div className="bg-white dark:bg-[#242424] border border-[#C4A574]/30 dark:border-[#333333] rounded-xl overflow-hidden flex flex-col hover:shadow-xl transition-all hover:-translate-y-1">
       <EventImage image={event.image} name={event.name} />
       <div className="p-5 flex flex-col gap-3 flex-1">
         <div className="flex justify-between items-start gap-2">
@@ -360,7 +360,7 @@ export const AdminEventCard = ({
         )}
         <div className="pt-1 border-t border-gray-100 dark:border-gray-700 flex gap-2 mt-auto">
           <Link to={`/events/${event._id}`} className="flex-1">
-            <button className="w-full text-sm font-medium text-[#437057] dark:text-[#8aab5a] hover:bg-gray-50 dark:hover:bg-gray-800 py-2 rounded-lg border border-gray-200 dark:border-gray-700 transition-colors">
+            <button className="w-full text-sm font-medium text-[#8B1538] dark:text-[#C4A574] hover:bg-gray-50 dark:hover:bg-gray-800 py-2 rounded-lg border border-gray-200 dark:border-gray-700 transition-colors">
               View Details
             </button>
           </Link>
