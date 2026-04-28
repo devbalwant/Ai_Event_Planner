@@ -49,13 +49,13 @@ const BookingPage = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#f0f5e8] dark:bg-[#1a2e22]">
+      <div className="min-h-screen bg-[#E8DCC4] dark:bg-[#0f0f0f]">
         <Navbar />
         <div className="flex">
           <Sidebar />
           <div className="flex-1 flex items-center justify-center py-24">
             <svg
-              className="animate-spin h-8 w-8 text-[#437057] dark:text-white"
+              className="animate-spin h-8 w-8 text-[#C4A574] dark:text-[#C4A574]"
               fill="none"
               viewBox="0 0 24 24"
             >
@@ -82,19 +82,19 @@ const BookingPage = () => {
   if (!event) return null;
 
   return (
-    <div className="min-h-screen bg-[#f0f5e8] dark:bg-[#1a2e22]">
+    <div className="min-h-screen bg-[#E8DCC4] dark:bg-[#0f0f0f]">
       <Navbar />
       <div className="flex">
         <Sidebar />
         <div className="flex-1 p-8">
           <button
             onClick={() => navigate(-1)}
-            className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-100 mb-6 transition-colors"
+            className="flex items-center gap-2 text-sm text-[#8B1538]/70 dark:text-[#a3a3a3] hover:text-[#8B1538] dark:hover:text-[#e5e5e5] mb-6 transition-colors"
           >
             ← Back
           </button>
 
-          <h1 className="text-2xl font-bold text-[#437057] dark:text-white mb-7">
+          <h1 className="text-2xl font-bold text-[#8B1538] dark:text-[#e5e5e5] mb-7">
             Complete Your Booking
           </h1>
 
@@ -102,8 +102,8 @@ const BookingPage = () => {
             {/* Left — Event details + ticket selector */}
             <div className="lg:col-span-2 space-y-5">
               {/* Event Details Card */}
-              <div className="bg-white dark:bg-[#1f3329] border border-gray-200 dark:border-gray-700 rounded-2xl p-6">
-                <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-4">
+              <div className="bg-white dark:bg-[#242424] border border-[#C4A574]/30 dark:border-[#333333] rounded-2xl p-6 shadow-lg">
+                <h2 className="text-sm font-semibold text-[#8B1538] dark:text-[#e5e5e5] mb-4">
                   Event Details
                 </h2>
                 <div className="flex gap-4">
@@ -144,8 +144,8 @@ const BookingPage = () => {
               </div>
 
               {/* Select Tickets */}
-              <div className="bg-white dark:bg-[#1f3329] border border-gray-200 dark:border-gray-700 rounded-2xl p-6">
-                <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-4">
+              <div className="bg-white dark:bg-[#242424] border border-[#C4A574]/30 dark:border-[#333333] rounded-2xl p-6 shadow-lg">
+                <h2 className="text-sm font-semibold text-[#8B1538] dark:text-[#e5e5e5] mb-4">
                   Select Tickets
                 </h2>
                 <div className="flex items-center justify-between">
@@ -190,8 +190,8 @@ const BookingPage = () => {
 
             {/* Right — Order Summary */}
             <div className="lg:col-span-1">
-              <div className="bg-white dark:bg-[#1f3329] border border-gray-200 dark:border-gray-700 rounded-2xl p-6 sticky top-24">
-                <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-5">
+              <div className="bg-white dark:bg-[#242424] border border-[#C4A574]/30 dark:border-[#333333] rounded-2xl p-6 sticky top-24 shadow-lg">
+                <h2 className="text-sm font-semibold text-[#8B1538] dark:text-[#e5e5e5] mb-5">
                   Order Summary
                 </h2>
 
@@ -215,7 +215,7 @@ const BookingPage = () => {
                 <button
                   onClick={handleBook}
                   disabled={booking}
-                  className="mt-6 w-full bg-[#437057] hover:bg-[#365a46] disabled:bg-gray-300 text-white py-3 rounded-xl font-semibold text-sm transition-colors flex items-center justify-center gap-2"
+                  className="mt-6 w-full bg-[#C4A574] hover:bg-[#B09560] disabled:bg-gray-300 text-[#0f0f0f] py-3 rounded-xl font-semibold text-sm transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
                 >
                   {booking ? (
                     <>

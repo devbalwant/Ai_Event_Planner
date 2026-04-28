@@ -6,12 +6,12 @@ import toast from "react-hot-toast";
 
 const StatCard = ({ label, value, border, sub }) => (
   <div
-    className={`bg-white dark:bg-[#1f3329] border border-gray-200 dark:border-gray-700 rounded-xl p-6 border-l-4 ${border}`}
+    className={`bg-white dark:bg-[#242424] border border-gray-200 dark:border-gray-700 rounded-xl p-6 border-l-4 ${border}`}
   >
     <p className="text-xs text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wide">
       {label}
     </p>
-    <p className="text-4xl font-bold text-[#437057] dark:text-white mt-2">
+    <p className="text-4xl font-bold text-[#8B1538] dark:text-white mt-2">
       {value ?? "—"}
     </p>
     {sub && (
@@ -45,13 +45,13 @@ const AdminDashboard = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#f0f5e8] dark:bg-[#1a2e22]">
+    <div className="min-h-screen bg-[#E8DCC4] dark:bg-[#1a1a1a]">
       <Navbar />
       <div className="flex">
         <Sidebar />
         <div className="flex-1 p-8">
           <div className="mb-7">
-            <h1 className="text-2xl font-bold text-[#437057] dark:text-white">
+            <h1 className="text-2xl font-bold text-[#8B1538] dark:text-white">
               Admin Overview
             </h1>
             <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">
@@ -62,7 +62,7 @@ const AdminDashboard = () => {
           {loading ? (
             <div className="flex flex-col items-center justify-center py-24">
               <svg
-                className="animate-spin h-8 w-8 text-[#437057] dark:text-white mb-4"
+                className="animate-spin h-8 w-8 text-[#8B1538] dark:text-white mb-4"
                 fill="none"
                 viewBox="0 0 24 24"
               >
@@ -91,12 +91,12 @@ const AdminDashboard = () => {
                 <StatCard
                   label="Total Users"
                   value={stats?.totalUsers}
-                  border="border-[#437057]"
+                  border="border-[#8B1538]"
                 />
                 <StatCard
                   label="Total Events"
                   value={stats?.totalEvents}
-                  border="border-[#8aab5a]"
+                  border="border-[#C4A574]"
                 />
                 <StatCard
                   label="Total Bookings"
@@ -116,7 +116,7 @@ const AdminDashboard = () => {
                 <StatCard
                   label="Pending Organizers"
                   value={stats?.pendingOrganizers}
-                  border="border-[#8aab5a]"
+                  border="border-[#C4A574]"
                   sub="Awaiting verification"
                 />
                 <StatCard
@@ -141,9 +141,9 @@ const AdminDashboard = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg">
                 <a
                   href="/admin/organizers"
-                  className="bg-white dark:bg-[#1f3329] border border-gray-200 dark:border-gray-700 rounded-xl p-5 hover:shadow-md transition-shadow flex items-center gap-4"
+                  className="bg-white dark:bg-[#242424] border border-gray-200 dark:border-gray-700 rounded-xl p-5 hover:shadow-md transition-shadow flex items-center gap-4"
                 >
-                  <div className="w-10 h-10 bg-[#c5d9a0]/30 dark:bg-[#437057]/20 rounded-lg flex items-center justify-center text-xl">
+                  <div className="w-10 h-10 bg-[#E8DCC4]/30 dark:bg-[#8B1538]/20 rounded-lg flex items-center justify-center text-xl">
                     ◎
                   </div>
                   <div>
@@ -157,7 +157,7 @@ const AdminDashboard = () => {
                 </a>
                 <a
                   href="/admin/events"
-                  className="bg-white dark:bg-[#1f3329] border border-gray-200 dark:border-gray-700 rounded-xl p-5 hover:shadow-md transition-shadow flex items-center gap-4"
+                  className="bg-white dark:bg-[#242424] border border-gray-200 dark:border-gray-700 rounded-xl p-5 hover:shadow-md transition-shadow flex items-center gap-4"
                 >
                   <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center text-xl">
                     ◈

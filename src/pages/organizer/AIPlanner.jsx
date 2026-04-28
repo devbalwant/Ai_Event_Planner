@@ -50,16 +50,16 @@ const AIPlanner = () => {
   };
 
   const inputClass =
-    "w-full px-4 py-2.5 border border-gray-200 dark:border-gray-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#8aab5a]/20 focus:border-[#437057] dark:focus:border-[#8aab5a] bg-white dark:bg-[#1f3329] dark:text-gray-100";
+    "w-full px-4 py-2.5 border border-gray-200 dark:border-gray-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#C4A574]/20 focus:border-[#8B1538] dark:focus:border-[#C4A574] bg-white dark:bg-[#242424] dark:text-gray-100";
 
   return (
-    <div className="min-h-screen bg-[#f0f5e8] dark:bg-[#1a2e22]">
+    <div className="min-h-screen bg-[#E8DCC4] dark:bg-[#1a1a1a]">
       <Navbar />
       <div className="flex">
         <Sidebar />
         <div className="flex-1 p-8">
           <div className="mb-7">
-            <h1 className="text-2xl font-bold text-[#437057] dark:text-white">
+            <h1 className="text-2xl font-bold text-[#8B1538] dark:text-white">
               AI Event Planner
             </h1>
             <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">
@@ -69,7 +69,7 @@ const AIPlanner = () => {
 
           <div className="max-w-2xl space-y-6">
             {/* Form */}
-            <div className="bg-white dark:bg-[#1f3329] border border-gray-200 dark:border-gray-700 rounded-2xl p-7 shadow-sm space-y-5">
+            <div className="bg-white dark:bg-[#242424] border border-gray-200 dark:border-gray-700 rounded-2xl p-7 shadow-sm space-y-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1.5">
@@ -129,7 +129,7 @@ const AIPlanner = () => {
               <button
                 onClick={handleGenerate}
                 disabled={loading}
-                className="w-full bg-[#437057] hover:bg-[#365a46] disabled:bg-gray-300 text-white py-2.5 rounded-lg text-sm font-semibold transition-colors flex items-center justify-center gap-2"
+                className="w-full bg-[#C4A574] hover:bg-[#B09560] disabled:bg-gray-300 text-[#0f0f0f] py-2.5 rounded-lg text-sm font-semibold transition-colors flex items-center justify-center gap-2"
               >
                 {loading ? (
                   <>
@@ -162,11 +162,11 @@ const AIPlanner = () => {
 
             {/* Prompt preview */}
             {prompt && (
-              <div className="bg-[#c5d9a0]/30 dark:bg-[#437057]/20 border border-[#8aab5a]/40 dark:border-[#8aab5a]/30 rounded-xl p-4">
-                <p className="text-xs font-semibold text-[#437057] dark:text-[#8aab5a] uppercase tracking-wide mb-1">
+              <div className="bg-[#E8DCC4]/30 dark:bg-[#8B1538]/20 border border-[#C4A574]/40 dark:border-[#C4A574]/30 rounded-xl p-4">
+                <p className="text-xs font-semibold text-[#8B1538] dark:text-[#C4A574] uppercase tracking-wide mb-1">
                   Prompt Sent to AI
                 </p>
-                <p className="text-sm text-[#437057] dark:text-[#8aab5a]">
+                <p className="text-sm text-[#8B1538] dark:text-[#C4A574]">
                   {prompt}
                 </p>
               </div>
@@ -174,8 +174,8 @@ const AIPlanner = () => {
 
             {/* AI Response */}
             {response && (
-              <div className="bg-white dark:bg-[#1f3329] border border-gray-200 dark:border-gray-700 rounded-2xl p-7 shadow-sm">
-                <h2 className="text-base font-bold text-[#437057] dark:text-white mb-5">
+              <div className="bg-white dark:bg-[#242424] border border-gray-200 dark:border-gray-700 rounded-2xl p-7 shadow-sm">
+                <h2 className="text-base font-bold text-[#8B1538] dark:text-white mb-5">
                   AI Generated Plan
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -183,7 +183,7 @@ const AIPlanner = () => {
                     response[key] ? (
                       <div
                         key={key}
-                        className="bg-[#e8f0d8] dark:bg-gray-800 rounded-xl p-4"
+                        className="bg-[#E8DCC4] dark:bg-gray-800 rounded-xl p-4"
                       >
                         <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1.5 flex items-center gap-1.5">
                           <span>{icon}</span>

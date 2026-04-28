@@ -73,16 +73,16 @@ const BrowseEvents = () => {
     .filter((e) => category === "All" || e.category === category);
 
   return (
-    <div className="min-h-screen bg-[#f0f5e8] dark:bg-[#1a2e22]">
+    <div className="min-h-screen bg-[#E8DCC4] dark:bg-[#0f0f0f]">
       <Navbar />
       <div className="flex">
         <Sidebar />
         <div className="flex-1 p-8">
           <div className="mb-7">
-            <h1 className="text-2xl font-bold text-[#437057] dark:text-white">
+            <h1 className="text-2xl font-bold text-[#8B1538] dark:text-[#e5e5e5]">
               Browse Events
             </h1>
-            <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">
+            <p className="text-[#8B1538]/70 dark:text-[#a3a3a3] text-sm mt-1">
               Discover and book upcoming events
             </p>
           </div>
@@ -94,7 +94,7 @@ const BrowseEvents = () => {
               placeholder="Search events or location..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1f3329] dark:text-gray-100 px-4 py-2.5 rounded-lg w-full sm:w-72 text-sm focus:outline-none focus:ring-2 focus:ring-[#8aab5a]/20 focus:border-[#437057] dark:focus:border-[#8aab5a]"
+              className="border border-[#C4A574]/30 dark:border-[#333333] bg-white dark:bg-[#242424] dark:text-[#e5e5e5] px-4 py-2.5 rounded-lg w-full sm:w-72 text-sm focus:outline-none focus:ring-2 focus:ring-[#C4A574]/40 focus:border-[#C4A574] placeholder:text-[#8B1538]/40 dark:placeholder:text-[#a3a3a3]"
             />
             <div className="flex gap-2 flex-wrap">
               {categories.map((c) => (
@@ -103,8 +103,8 @@ const BrowseEvents = () => {
                   onClick={() => setCategory(c)}
                   className={`px-3 py-2 rounded-lg text-xs font-medium transition-all border ${
                     category === c
-                      ? "bg-[#437057] text-white border-[#437057]"
-                      : "bg-white dark:bg-[#1f3329] text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
+                      ? "bg-[#C4A574] text-[#0f0f0f] border-[#C4A574] shadow-md"
+                      : "bg-white dark:bg-[#242424] text-[#8B1538] dark:text-[#e5e5e5] border-[#C4A574]/30 dark:border-[#333333] hover:border-[#C4A574]/50 dark:hover:border-[#C4A574]/40"
                   }`}
                 >
                   {c}
@@ -117,7 +117,7 @@ const BrowseEvents = () => {
           {loading ? (
             <div className="flex flex-col items-center justify-center py-24">
               <svg
-                className="animate-spin h-8 w-8 text-[#437057] dark:text-white mb-4"
+                className="animate-spin h-8 w-8 text-[#C4A574] dark:text-[#C4A574] mb-4"
                 fill="none"
                 viewBox="0 0 24 24"
               >
@@ -135,25 +135,25 @@ const BrowseEvents = () => {
                   d="M4 12a8 8 0 018-8v8z"
                 />
               </svg>
-              <p className="text-gray-400 dark:text-gray-500 text-sm">
+              <p className="text-[#8B1538]/70 dark:text-[#a3a3a3] text-sm">
                 Loading events...
               </p>
             </div>
           ) : filtered.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-24 text-center">
-              <div className="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center text-2xl mb-4">
+              <div className="w-16 h-16 bg-[#C4A574]/20 dark:bg-[#C4A574]/10 rounded-full flex items-center justify-center text-2xl mb-4">
                 🔍
               </div>
-              <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-1">
+              <h3 className="text-lg font-semibold text-[#8B1538] dark:text-[#e5e5e5] mb-1">
                 No events found
               </h3>
-              <p className="text-gray-400 dark:text-gray-500 text-sm">
+              <p className="text-[#8B1538]/70 dark:text-[#a3a3a3] text-sm">
                 Try adjusting your search or category filter
               </p>
             </div>
           ) : (
             <>
-              <p className="text-xs text-gray-400 dark:text-gray-500 mb-4">
+              <p className="text-xs text-[#8B1538]/70 dark:text-[#a3a3a3] mb-4">
                 {filtered.length} event{filtered.length !== 1 ? "s" : ""} found
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">

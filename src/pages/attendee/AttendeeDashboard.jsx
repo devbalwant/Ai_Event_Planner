@@ -49,7 +49,7 @@ const AttendeeDashboard = () => {
   });
 
   return (
-    <div className="min-h-screen bg-[#f0f5e8] dark:bg-[#1a2e22]">
+    <div className="min-h-screen bg-[#E8DCC4] dark:bg-[#0f0f0f]">
       <Navbar />
       <div className="flex">
         <Sidebar />
@@ -57,15 +57,15 @@ const AttendeeDashboard = () => {
           {/* Header */}
           <div className="flex justify-between items-start mb-7">
             <div>
-              <h1 className="text-2xl font-bold text-[#437057] dark:text-white">
+              <h1 className="text-2xl font-bold text-[#8B1538] dark:text-[#e5e5e5]">
                 My Bookings
               </h1>
-              <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">
+              <p className="text-[#8B1538]/70 dark:text-[#a3a3a3] text-sm mt-1">
                 All your event bookings and passes
               </p>
             </div>
             <Link to="/attendee/events">
-              <button className="bg-[#437057] hover:bg-[#365a46] text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors">
+              <button className="bg-[#C4A574] hover:bg-[#B09560] text-[#0f0f0f] px-5 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-md hover:shadow-lg">
                 Browse Events
               </button>
             </Link>
@@ -77,7 +77,7 @@ const AttendeeDashboard = () => {
               {
                 label: "Total",
                 value: bookings.length,
-                border: "border-[#437057]",
+                border: "border-[#C4A574]",
               },
               {
                 label: "Confirmed",
@@ -92,12 +92,12 @@ const AttendeeDashboard = () => {
             ].map((s) => (
               <div
                 key={s.label}
-                className={`bg-white dark:bg-[#1f3329] border border-gray-200 dark:border-gray-700 rounded-xl p-4 border-l-4 ${s.border}`}
+                className={`bg-white dark:bg-[#242424] border border-[#C4A574]/30 dark:border-[#333333] rounded-xl p-4 border-l-4 ${s.border}`}
               >
-                <p className="text-xs text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wide">
+                <p className="text-xs text-[#8B1538]/70 dark:text-[#a3a3a3] font-medium uppercase tracking-wide">
                   {s.label}
                 </p>
-                <p className="text-2xl font-bold text-[#437057] dark:text-white mt-1">
+                <p className="text-2xl font-bold text-[#8B1538] dark:text-[#e5e5e5] mt-1">
                   {s.value}
                 </p>
               </div>
@@ -112,8 +112,8 @@ const AttendeeDashboard = () => {
                 onClick={() => setFilter(f)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all border capitalize ${
                   filter === f
-                    ? "bg-[#437057] text-white border-[#437057]"
-                    : "bg-white dark:bg-[#1f3329] text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
+                    ? "bg-[#C4A574] text-[#0f0f0f] border-[#C4A574] shadow-md"
+                    : "bg-white dark:bg-[#242424] text-[#8B1538] dark:text-[#e5e5e5] border-[#C4A574]/30 dark:border-[#333333] hover:border-[#C4A574]/50 dark:hover:border-[#C4A574]/40"
                 }`}
               >
                 {f}
@@ -125,7 +125,7 @@ const AttendeeDashboard = () => {
           {loading ? (
             <div className="flex flex-col items-center justify-center py-24">
               <svg
-                className="animate-spin h-8 w-8 text-[#437057] dark:text-white mb-4"
+                className="animate-spin h-8 w-8 text-[#C4A574] dark:text-[#C4A574] mb-4"
                 fill="none"
                 viewBox="0 0 24 24"
               >
@@ -143,23 +143,23 @@ const AttendeeDashboard = () => {
                   d="M4 12a8 8 0 018-8v8z"
                 />
               </svg>
-              <p className="text-gray-400 dark:text-gray-500 text-sm">
+              <p className="text-[#8B1538]/70 dark:text-[#a3a3a3] text-sm">
                 Loading bookings...
               </p>
             </div>
           ) : filtered.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-24 text-center">
-              <div className="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center text-2xl mb-4">
+              <div className="w-16 h-16 bg-[#C4A574]/20 dark:bg-[#C4A574]/10 rounded-full flex items-center justify-center text-2xl mb-4">
                 🎟️
               </div>
-              <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-1">
+              <h3 className="text-lg font-semibold text-[#8B1538] dark:text-[#e5e5e5] mb-1">
                 No bookings yet
               </h3>
-              <p className="text-gray-400 dark:text-gray-500 text-sm mb-6">
+              <p className="text-[#8B1538]/70 dark:text-[#a3a3a3] text-sm mb-6">
                 Browse events and book your first ticket
               </p>
               <Link to="/attendee/events">
-                <button className="bg-[#437057] hover:bg-[#365a46] text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-colors">
+                <button className="bg-[#C4A574] hover:bg-[#B09560] text-[#0f0f0f] px-6 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-md hover:shadow-lg">
                   Browse Events
                 </button>
               </Link>

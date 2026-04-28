@@ -26,8 +26,8 @@ const Sidebar = () => {
   const items = user ? menuByRole[user.role] || [] : [];
 
   return (
-    <div className="bg-[#437057] dark:bg-[#1a2e22] text-gray-300 w-56 min-h-screen p-5 flex flex-col gap-1 shrink-0 border-r border-white/5">
-      <p className="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-3 px-2">
+    <div className="bg-[#8B1538] dark:bg-[#1a1a1a] text-[#D4C8B0] dark:text-[#a3a3a3] w-56 min-h-screen p-5 flex flex-col gap-1 shrink-0 border-r border-[#C4A574]/20 dark:border-[#333333]">
+      <p className="text-xs font-semibold uppercase tracking-widest text-[#C4A574]/70 dark:text-[#C4A574] mb-3 px-2">
         Menu
       </p>
       {items.map((item) => {
@@ -38,8 +38,8 @@ const Sidebar = () => {
             to={item.to}
             className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all ${
               isActive
-                ? "bg-[#8aab5a] text-white"
-                : "hover:bg-white/10 text-gray-300"
+                ? "bg-[#C4A574] text-[#0f0f0f] shadow-md"
+                : "hover:bg-[#C4A574]/20 dark:hover:bg-[#242424] text-[#E8DCC4] dark:text-[#e5e5e5]"
             }`}
           >
             <span className="text-base w-5 text-center">{item.icon}</span>
